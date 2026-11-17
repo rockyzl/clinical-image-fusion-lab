@@ -1,0 +1,25 @@
+{
+  "verified_at": "2026-11-17T21:48:21.823465+00:00",
+  "url": "https://rockyzl.github.io/clinical-image-fusion-lab/",
+  "repository": "https://github.com/rockyzl/clinical-image-fusion-lab",
+  "workflow": {
+    "conclusion": "success",
+    "databaseId": 44183039859,
+    "headSha": "94ee8660911ba80c6929cf9d1a1d819ca167fbe8",
+    "status": "completed",
+    "updatedAt": "2026-11-17T21:46:22Z",
+    "url": "https://github.com/rockyzl/clinical-image-fusion-lab/actions/runs/44183039859"
+  },
+  "http_status": 200,
+  "manifest_sha256": "81f3863b9280a0baaf1f0b819fd2d0d9070d2c9c5234b9053cf643f9c23d05b7",
+  "public_manifest_matches_local": true,
+  "browser_report": "docs/browser-verification.json",
+  "actual_public_browser_cases": 12,
+  "maximum_absolute_probability_error": 9.215440286425292e-06,
+  "hosting": "GitHub Pages public repository",
+  "inference": "Browser CPU via ONNX Runtime Web",
+  "new_paid_cloud_resources": 0,
+  "paid_model_api_calls": 0,
+  "clinical_validation": false,
+  "docker_executed": false
+}
