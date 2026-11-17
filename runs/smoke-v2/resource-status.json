@@ -1,0 +1,11 @@
+{
+  "completed_cleanly": true,
+  "start_sha256": "66bd31bdb3807406ee3a8b3ebbacd3eff8dfdd44de6e71cddedc54aeedabed3a",
+  "peak_rss_mib": 341.09375,
+  "elapsed_seconds": 4.017385407998518,
+  "returncode": 0,
+  "actions": [],
+  "error": null,
+  "scientific_result": false,
+  "publication_ready": false
+}

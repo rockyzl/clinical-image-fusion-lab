@@ -1,0 +1,11 @@
+{
+  "command": "uv run python scripts/check_api.py",
+  "exit_code": 0,
+  "observed_result": {
+    "api": "passed",
+    "inference_max_error": 2.9802322387695312e-08,
+    "review_lifecycle": "pending -> demo accepted; duplicate rejected"
+  },
+  "scope": "Actual local TestClient calls with real ONNX weights; temporary SQLite audit; no hospital/authenticated clinical reviewer",
+  "docker_tested": false
+}

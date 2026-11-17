@@ -1,0 +1,38 @@
+[project]
+name = "clinical-image-fusion-lab"
+version = "0.1.0"
+description = "Research demonstration of paired skin photographs and clinical metadata"
+requires-python = ">=3.11"
+dependencies = [
+    "numpy>=2,<3",
+    "pandas>=2,<3",
+    "scikit-learn>=1.6,<2",
+    "torch>=2.6,<3",
+    "torchvision>=0.21,<1",
+    "pillow>=11,<13",
+    "einops>=0.8,<1",
+    "requests>=2.32,<3",
+    "psutil>=6,<8",
+    "fastapi>=0.115,<1",
+    "uvicorn>=0.34,<1",
+    "matplotlib>=3.9,<4",
+    "onnx>=1.17,<2",
+    "onnxruntime>=1.20,<2",
+    "onnxscript>=0.5,<1",
+]
+
+[dependency-groups]
+dev = ["pytest>=8,<10", "httpx>=0.28,<1"]
+
+[[tool.uv.index]]
+name = "pytorch-cpu"
+url = "https://download.pytorch.org/whl/cpu"
+explicit = true
+
+[tool.uv.sources]
+torch = { index = "pytorch-cpu" }
+torchvision = { index = "pytorch-cpu" }
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]

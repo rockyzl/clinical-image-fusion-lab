@@ -1,0 +1,62 @@
+{
+  "status": "verified",
+  "reviewer": "/root/oncology_model_review",
+  "metric_max_absolute_errors": {
+    "macro_f1": 0.0,
+    "balanced_accuracy": 0.0,
+    "macro_auroc": 7.597137363646311e-09,
+    "log_loss": 5.4126122805975285e-08,
+    "probability_rowsum": 2.384185791015625e-07
+  },
+  "means": {
+    "clinical_linear": 0.6438558032157707,
+    "image_linear": 0.47844193354498676,
+    "concat_linear": 0.6453570103403763,
+    "metablock": 0.6809420947681007,
+    "healnet": 0.6668502835887015
+  },
+  "intervals": {
+    "clinical_linear": [
+      0.5675231119914711,
+      0.7018737924189141
+    ],
+    "image_linear": [
+      0.4249798058997502,
+      0.5241498026740062
+    ],
+    "concat_linear": [
+      0.5827333625745688,
+      0.6943011550351759
+    ],
+    "metablock": [
+      0.6077943044454176,
+      0.7335674734485553
+    ],
+    "healnet": [
+      0.5999091731299587,
+      0.7223954108703643
+    ]
+  },
+  "primary_delta": 0.16691507679538953,
+  "primary_ci": [
+    0.12062463332491928,
+    0.2136932775128985
+  ],
+  "results_sha256": "c7c2085f587e24b677b9c9fec2e33e5d94bc99924aa2a2526191d8f0b3087917",
+  "predictions_sha256": "967bc4ad1dff0f6864aeddaa5bc9c0742d4384b51105cecad5775c4e293968ac",
+  "start_sha256": "bea6fcc2026dd90d3756e50dac0019ddf3da72dc3dacc6812ad7ca7b4fd130ee",
+  "selection_sha256": "12fd0dcbc8975120ebd63a332e3e017886fd9a62fbd21d4019cac0bbd86c045c",
+  "class_support": [
+    155,
+    174,
+    14,
+    46,
+    50,
+    38
+  ],
+  "bootstrap_method": "Independent weighted-confusion implementation, 200 shared component draws with RNG 771, average metric across all three seeds, no ensemble",
+  "source_labels_reopened": false,
+  "scientific_result": false,
+  "publication_ready": false,
+  "clinical_validation": false
+}

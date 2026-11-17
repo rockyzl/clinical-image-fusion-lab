@@ -1,0 +1,53 @@
+{
+  "schema": 1,
+  "decision": "approved",
+  "scope": "execute-only",
+  "purpose": "smoke",
+  "reviewer": "/root/oncology_model_review",
+  "reviewer_tool": "collaboration",
+  "proposal_sha256": "001a160995e36cf9ba3a89647dfe73e2fe92079633c6ee4105bdfb046a06dc29",
+  "proposal_semantic_sha256": "a7dd3d43082ea8da869b61e2ac1de8b466fe401dc83d0ae4bfbf1bb484863696",
+  "nonce": "1b840a1f-45bf-4adb-a7be-98d46d8a5a37",
+  "reviewed_at": "2026-11-17T21:22:40.444426+00:00",
+  "expires_at": "2026-11-17T23:22:40.444426+00:00",
+  "command": [
+    "/home/lu2/dev/personal/projects/healthcare/clinical-image-fusion-lab/.venv/bin/python",
+    "-m",
+    "src.supervisor",
+    "--proposal",
+    "/home/lu2/dev/personal/projects/healthcare/clinical-image-fusion-lab/reviews/smoke-v1-proposal.json",
+    "--review",
+    "/home/lu2/dev/personal/projects/healthcare/clinical-image-fusion-lab/reviews/execute-smoke-v1.json"
+  ],
+  "cwd": "/home/lu2/dev/personal/projects/healthcare/clinical-image-fusion-lab",
+  "allowed_execution": "One native supervised smoke only: first64 fit rows and first64 inner-tune rows, allfive fixed models at seed17, twoepochs each, CPU4threads. Fit/tune class counts may be checked; outer validation/test analysis forbidden.",
+  "resource_observation": {
+    "available_ram_gib": 14.92196273803711,
+    "free_disk_gib": 561.1093139648438,
+    "data_gib": 6.855694609694183,
+    "observed_at": "2026-11-17T21:22:40.444426+00:00"
+  },
+  "evidence": [
+    "Independently rehashed30 bound protocol/source/vendor/test/dependency/prepared artifacts; all match reviewed proposal.",
+    "Feature-only inspection confirmed2298 unique image rows,1373 patient IDs,1132 conservative components; image splits1188fit/261tune/372validation/477test, largest component17images.",
+    "Independently reconstructed union graph from patient IDs, ambiguous lesion IDs and exact-RGB hashes; all stored component IDs match. No patient, lesion ID or component crosses splits.",
+    "Independently replayed fit-only clinical preprocessing exactly; explicit unique missing/unknown categories,60 transformed dimensions, no diagnostic/biopsy columns.",
+    "Frozen image cache has shape2298x7x7x512,float16, allfinite; independently recomputed image scaling from only fit rows, matching saved scaler.",
+    "Official metadata file SHA256 independently verified without parsing diagnostic values. Analytical validation/test labels were not read during review.",
+    "Reviewed corrected predecessor gate: exact trial identities and full binding, journal reservation/start/completion and curves, checkpoint semantic/hash/finite checks occur before held-out label access.",
+    "Reviewed durable selection-and-partition-keyed evaluation claim, stale progress120s, process-tree RSS monitoring, reviewed launch command and post-claim start-failure recording.",
+    "Pinned original and hardening changes preserve module attribution; forward/backward, input-copy, parity and bad-shape tests exist. Native executable smoke is now explicitly authorized to test the supervised seam."
+  ],
+  "conditions": [
+    "Stop at120seconds soft limit and135seconds hard limit,6GiB process-tree RSS,12GiB projectdata budget and free-disk floor; preserve every failure/run artifact.",
+    "No full training, outer validation, test analysis, paid calls, GPU or new cloud resources are approved.",
+    "A smoke success does not authorize training; actual run/checkpoint/journal/resource reconciliation and conservative feasibility projection require a fresh independent execute-only training review.",
+    "Do not change bound source/config/cache/dependencies between this review and execution. Any drift requires a new proposal/review/run lineage.",
+    "Scientific_result/publication_ready/clinical_validation remain false."
+  ],
+  "blocking_findings": [],
+  "scientific_result": false,
+  "publication_ready": false,
+  "clinical_validation": false,
+  "heldout_labels_inspected": false
+}

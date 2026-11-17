@@ -1,0 +1,8 @@
+{
+  "stage": "key-only source audit before membership or label access",
+  "reason": "250 lesion IDs map to multiple patients",
+  "old_protocol": "1.0",
+  "resolution": "v1.1 conservatively unions all shared-lesion patients and exact-RGB duplicates before splitting",
+  "analytical_validation_reads": 0,
+  "analytical_test_reads": 0
+}

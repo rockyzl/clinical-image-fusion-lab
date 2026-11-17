@@ -1,0 +1,17 @@
+{
+  "component_count": 1132,
+  "max_images_in_component": 17,
+  "max_fraction": 0.0073977371627502175,
+  "component_size_quantiles": {
+    "0.5": 1.0,
+    "0.9": 4.0,
+    "0.99": 10.0
+  },
+  "partitions": {
+    "fit": 1188,
+    "test": 477,
+    "tune": 261,
+    "validation": 372
+  },
+  "label_access": false
+}

@@ -1,0 +1,242 @@
+{
+  "mode": "smoke",
+  "start_sha256": "66bd31bdb3807406ee3a8b3ebbacd3eff8dfdd44de6e71cddedc54aeedabed3a",
+  "protocol_sha256": "16442027f4d0318b4eaad57a067d7b5a4ced217633f63cb445ec09a718b865ae",
+  "trials": [
+    {
+      "model": "clinical_linear",
+      "seed": 17,
+      "best_epoch": 2,
+      "restored_epoch": 2,
+      "best_tune_loss": 1.670844554901123,
+      "epochs_completed": 2,
+      "stop_reason": "smoke_limit",
+      "checkpoint": "/home/lu2/dev/personal/projects/healthcare/clinical-image-fusion-lab/runs/smoke-v2/checkpoints/clinical_linear-17.pt",
+      "checkpoint_sha256": "2aa3ddc8c49431379cd259db1fe5f545bd107a9b812444fb93ebd119aae2e6a3",
+      "mean_batch_seconds": 0.018228063249807747,
+      "curves": [
+        {
+          "epoch": 1,
+          "train_loss": 1.7610708475112915,
+          "tune_loss": 1.6749162673950195,
+          "best_epoch": 1,
+          "stale": 0,
+          "seconds": 0.04311711699847365,
+          "phase_seconds": {
+            "slice_transform": 0.01727464199939277,
+            "forward": 0.0008569560013711452,
+            "backward": 0.0008018150001589675,
+            "optimizer": 0.0005787480004073586,
+            "tune": 0.01226876100190566
+          }
+        },
+        {
+          "epoch": 2,
+          "train_loss": 1.747719168663025,
+          "tune_loss": 1.670844554901123,
+          "best_epoch": 2,
+          "stale": 0,
+          "seconds": 0.02979513600075734,
+          "phase_seconds": {
+            "slice_transform": 0.011004799001966603,
+            "forward": 0.00029666100090253167,
+            "backward": 0.0001944979994732421,
+            "optimizer": 0.0002241180009150412,
+            "tune": 0.009673128002759768
+          }
+        }
+      ]
+    },
+    {
+      "model": "image_linear",
+      "seed": 17,
+      "best_epoch": 2,
+      "restored_epoch": 2,
+      "best_tune_loss": 1.721645712852478,
+      "epochs_completed": 2,
+      "stop_reason": "smoke_limit",
+      "checkpoint": "/home/lu2/dev/personal/projects/healthcare/clinical-image-fusion-lab/runs/smoke-v2/checkpoints/image_linear-17.pt",
+      "checkpoint_sha256": "e662ba4d9f20e00b11b938a99ea54175280127f9105c8660ea9019e8c32be267",
+      "mean_batch_seconds": 0.015688684249653306,
+      "curves": [
+        {
+          "epoch": 1,
+          "train_loss": 1.6904475688934326,
+          "tune_loss": 1.7460347414016724,
+          "best_epoch": 1,
+          "stale": 0,
+          "seconds": 0.03265242499765009,
+          "phase_seconds": {
+            "slice_transform": 0.008736671999940882,
+            "forward": 0.0007382380026683677,
+            "backward": 0.00022440700195147656,
+            "optimizer": 0.0002530720012146048,
+            "tune": 0.014304289998108288
+          }
+        },
+        {
+          "epoch": 2,
+          "train_loss": 1.5710971355438232,
+          "tune_loss": 1.721645712852478,
+          "best_epoch": 2,
+          "stale": 0,
+          "seconds": 0.03010231200096314,
+          "phase_seconds": {
+            "slice_transform": 0.008622594999906141,
+            "forward": 0.0005469139978231397,
+            "backward": 0.00019204300042474642,
+            "optimizer": 0.00022598500072490424,
+            "tune": 0.011630793000222184
+          }
+        }
+      ]
+    },
+    {
+      "model": "concat_linear",
+      "seed": 17,
+      "best_epoch": 2,
+      "restored_epoch": 2,
+      "best_tune_loss": 1.7340975999832153,
+      "epochs_completed": 2,
+      "stop_reason": "smoke_limit",
+      "checkpoint": "/home/lu2/dev/personal/projects/healthcare/clinical-image-fusion-lab/runs/smoke-v2/checkpoints/concat_linear-17.pt",
+      "checkpoint_sha256": "37b9a5f0b17f1a23946892b774f072548066283bd9a1f26e2b22f676176a84bc",
+      "mean_batch_seconds": 0.015884444249422813,
+      "curves": [
+        {
+          "epoch": 1,
+          "train_loss": 1.6152715682983398,
+          "tune_loss": 1.7641152143478394,
+          "best_epoch": 1,
+          "stale": 0,
+          "seconds": 0.03194151799834799,
+          "phase_seconds": {
+            "slice_transform": 0.008907515999453608,
+            "forward": 0.0005365079996408895,
+            "backward": 0.00018482700033928268,
+            "optimizer": 0.0002567139999882784,
+            "tune": 0.013991380998049863
+          }
+        },
+        {
+          "epoch": 2,
+          "train_loss": 1.492445945739746,
+          "tune_loss": 1.7340975999832153,
+          "best_epoch": 2,
+          "stale": 0,
+          "seconds": 0.03159625899934326,
+          "phase_seconds": {
+            "slice_transform": 0.012602874998265179,
+            "forward": 0.0005195179983275011,
+            "backward": 0.00028563000159920193,
+            "optimizer": 0.0003037349997612182,
+            "tune": 0.00933164700109046
+          }
+        }
+      ]
+    },
+    {
+      "model": "metablock",
+      "seed": 17,
+      "best_epoch": 2,
+      "restored_epoch": 2,
+      "best_tune_loss": 1.984754204750061,
+      "epochs_completed": 2,
+      "stop_reason": "smoke_limit",
+      "checkpoint": "/home/lu2/dev/personal/projects/healthcare/clinical-image-fusion-lab/runs/smoke-v2/checkpoints/metablock-17.pt",
+      "checkpoint_sha256": "3cc97de959aded5c3010e6b3e82b3589946487ab75c526148d228815894a1eed",
+      "mean_batch_seconds": 0.016483594999044726,
+      "curves": [
+        {
+          "epoch": 1,
+          "train_loss": 1.7930116653442383,
+          "tune_loss": 1.9976378679275513,
+          "best_epoch": 1,
+          "stale": 0,
+          "seconds": 0.03248918299868819,
+          "phase_seconds": {
+            "slice_transform": 0.008868968998285709,
+            "forward": 0.001495983000495471,
+            "backward": 0.0014008350008225534,
+            "optimizer": 0.0005218240003159735,
+            "tune": 0.011829920000309357
+          }
+        },
+        {
+          "epoch": 2,
+          "train_loss": 1.7193955183029175,
+          "tune_loss": 1.984754204750061,
+          "best_epoch": 2,
+          "stale": 0,
+          "seconds": 0.03344519699749071,
+          "phase_seconds": {
+            "slice_transform": 0.008623943998827599,
+            "forward": 0.0019334809985593893,
+            "backward": 0.0012128140006097965,
+            "optimizer": 0.0005150800025148783,
+            "tune": 0.011372099001164315
+          }
+        }
+      ]
+    },
+    {
+      "model": "healnet",
+      "seed": 17,
+      "best_epoch": 2,
+      "restored_epoch": 2,
+      "best_tune_loss": 1.8799656629562378,
+      "epochs_completed": 2,
+      "stop_reason": "smoke_limit",
+      "checkpoint": "/home/lu2/dev/personal/projects/healthcare/clinical-image-fusion-lab/runs/smoke-v2/checkpoints/healnet-17.pt",
+      "checkpoint_sha256": "ace56d6123e2193d5c8df3756fe2106726731a47789249d3491ffdd75e212478",
+      "mean_batch_seconds": 0.03597462475045177,
+      "curves": [
+        {
+          "epoch": 1,
+          "train_loss": 2.1501424312591553,
+          "tune_loss": 1.9870719909667969,
+          "best_epoch": 1,
+          "stale": 0,
+          "seconds": 0.0733590780000668,
+          "phase_seconds": {
+            "slice_transform": 0.008653452001453843,
+            "forward": 0.016762326999014476,
+            "backward": 0.010008667002693983,
+            "optimizer": 0.0026465000009920914,
+            "tune": 0.01962792199992691
+          }
+        },
+        {
+          "epoch": 2,
+          "train_loss": 1.5706360340118408,
+          "tune_loss": 1.8799656629562378,
+          "best_epoch": 2,
+          "stale": 0,
+          "seconds": 0.07053942100174027,
+          "phase_seconds": {
+            "slice_transform": 0.012638108000828652,
+            "forward": 0.009932777000358328,
+            "backward": 0.01219565100109321,
+            "optimizer": 0.0032753419982327614,
+            "tune": 0.0191144960008387
+          }
+        }
+      ]
+    }
+  ],
+  "class_weights": [
+    0.515625,
+    0.4510250687599182,
+    6.8275861740112305,
+    1.7217391729354858,
+    2.275861978530884,
+    1.4776118993759155
+  ],
+  "label_reads": {
+    "fit": 1,
+    "tune": 1
+  },
+  "elapsed_seconds": 0.5733498920017155,
+  "scientific_result": false,
+  "publication_ready": false
+}

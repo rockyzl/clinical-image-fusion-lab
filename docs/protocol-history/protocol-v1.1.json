@@ -1,0 +1,200 @@
+{
+  "version": "1.1",
+  "question": "On a patient-grouped public PAD-UFES-20 split, does adding clinical metadata to image features improve six-class skin-lesion classification?",
+  "scope": "Independent retrospective research demonstration; no diagnosis or clinical deployment.",
+  "data": {
+    "dataset": "PAD-UFES-20",
+    "version": 1,
+    "doi": "10.17632/zr7vgbcyr2.1",
+    "license": "CC-BY-4.0",
+    "modalities": [
+      "smartphone clinical photograph",
+      "paired clinical metadata"
+    ],
+    "all_images": true,
+    "orientation": "Stored decoded RGB orientation; no EXIF transpose. Exact RGB duplicate grouping only; near duplicates not guaranteed absent.",
+    "identifier_audit": "250 lesion_id values map to multiple patient IDs. Conservatively union those patients before splitting; may over-group unrelated records."
+  },
+  "classes": [
+    "ACK",
+    "BCC",
+    "MEL",
+    "NEV",
+    "SCC",
+    "SEK"
+  ],
+  "numeric_features": [
+    "age",
+    "fitspatrick",
+    "diameter_1",
+    "diameter_2"
+  ],
+  "categorical_features": [
+    "gender",
+    "region",
+    "skin_cancer_history",
+    "cancer_history",
+    "itch",
+    "grew",
+    "hurt",
+    "changed",
+    "bleed",
+    "elevation"
+  ],
+  "excluded_features": [
+    "patient_id",
+    "lesion_id",
+    "img_id",
+    "diagnostic",
+    "biopsed",
+    "smoke",
+    "drink",
+    "background_father",
+    "background_mother",
+    "pesticide",
+    "has_piped_water",
+    "has_sewage_system"
+  ],
+  "split": {
+    "method": "target-free patient/reused-lesion-ID/exact-RGB-duplicate connected components, SHA256 hash",
+    "salt": "clinical-image-fusion-v1",
+    "train": 0.6,
+    "validation": 0.2,
+    "test": 0.2,
+    "no_split_search": true,
+    "inner_tune_fraction_of_training": 0.2,
+    "inner_salt": "clinical-image-fusion-inner-v1"
+  },
+  "preprocessing": "Train-only numeric imputation/scaling and categorical vocabulary; unknown/missing categories explicit. Frozen ImageNet ResNet18 encoder with official resize/crop normalization. Exact RGB duplicates are joined into patient components before split.",
+  "image_encoder": {
+    "name": "torchvision ResNet18 IMAGENET1K_V1",
+    "frozen": true,
+    "spatial_output": [
+      7,
+      7,
+      512
+    ],
+    "input_pixels": 224
+  },
+  "models": [
+    "clinical_linear",
+    "image_linear",
+    "concat_linear",
+    "metablock",
+    "healnet"
+  ],
+  "candidate_reuse": {
+    "metablock": "paaatcha/MetaBlock@e283174409f5e5685cb871bbb9e85c26c3a53c65",
+    "healnet": "konst-int-i/healnet@90459b65a3d4a4ef9fd405671c457b5a1163cc7d"
+  },
+  "seeds": [
+    17,
+    29,
+    43
+  ],
+  "training": {
+    "batch_size": 64,
+    "max_epochs": 100,
+    "patience": 15,
+    "minimum_delta": 0.0001,
+    "optimizer": "AdamW",
+    "learning_rate": 0.001,
+    "weight_decay": 0.01,
+    "loss": "class-weighted cross entropy using train counts",
+    "selection": "lowest inner-tune weighted cross entropy per model/seed; restore checkpoint; outer validation only after selection freeze, test separately unlocked",
+    "ensemble": false,
+    "batch_policy": "balanced chunks with all rows retained; no singleton trailing batch",
+    "inner_tune": "20% target-free component hash within the 60% outer-training partition; no retrain on tune",
+    "missing_class_policy": "stop if fit or inner-tune lacks a class; no post-label seed/split search"
+  },
+  "evaluation": {
+    "primary_metric": "image-level macro-F1, fixed six classes",
+    "secondary_metrics": [
+      "balanced accuracy",
+      "macro one-vs-rest AUROC",
+      "log loss",
+      "confusion matrix"
+    ],
+    "uncertainty": "200 paired patient/reused-lesion-ID/exact-RGB-duplicate component bootstrap replicates; mean per-seed metric, conditional on fixed split and fitted models",
+    "primary_comparison": "concat-linear minus image-linear macro-F1 (prespecified metadata increment)",
+    "secondary_comparisons": "MetaBlock and HEALNet vs concat-linear, exploratory architecture comparisons, no test-selected winner",
+    "test_unlock": "Separate independent hash-bound execute-only review after frozen selection",
+    "absent_class_policy": {
+      "macro_f1": "six fixed labels, zero_division=0, supports displayed",
+      "balanced_accuracy": "mean recall over classes present in evaluated sample",
+      "macro_auroc": "null unless all six classes present; no silent bootstrap exclusion"
+    }
+  },
+  "budgets": {
+    "device": "cpu",
+    "threads": 4,
+    "rss_limit_gib": 6,
+    "disk_limit_gib": 12,
+    "new_cloud_resources": 0,
+    "paid_training_calls": 0,
+    "fits": 15,
+    "training_soft_seconds": 1500,
+    "training_hard_seconds": 1800,
+    "smoke_seconds": 120,
+    "worker_progress_timeout_seconds": 120
+  },
+  "stop_conditions": [
+    "nonfinite loss/gradient/weights",
+    "missing class in fit or inner-tune",
+    "unverified source hash",
+    "group overlap",
+    "missing or stale heartbeat",
+    "resource or time limit",
+    "incomplete trial plan"
+  ],
+  "permissions": {
+    "training": "requires instrumented smoke and independent execute-only review",
+    "test_analysis": "locked until separate review",
+    "scientific_result": false,
+    "publication_ready": false,
+    "clinical_validation": false,
+    "outer_validation": "locked until selection frozen and separate independent execute-only review"
+  },
+  "architectures": {
+    "linear": "Linear pooled frozen image features and/or encoded metadata -> six logits",
+    "metablock": {
+      "image_projection": 64,
+      "pool": "spatial mean after official MetaBlock gating",
+      "input_shapes": [
+        "B,512,49",
+        "B,D"
+      ]
+    },
+    "healnet": {
+      "image_projection": 64,
+      "channel_dims": [
+        "D",
+        64
+      ],
+      "num_spatial_axes": [
+        1,
+        2
+      ],
+      "depth": 2,
+      "l_c": 8,
+      "l_d": 32,
+      "x_heads": 2,
+      "l_heads": 2,
+      "cross_dim_head": 16,
+      "latent_dim_head": 16,
+      "num_freq_bands": 2,
+      "max_freq": 10,
+      "self_per_cross_attn": 1,
+      "ff_dropout": 0.1,
+      "attn_dropout": 0.1,
+      "snn": false,
+      "input_shapes": [
+        "B,1,D",
+        "B,7,7,64"
+      ],
+      "weight_tie_layers": false,
+      "fourier_encode_data": true,
+      "final_classifier_head": true
+    }
+  }
+}

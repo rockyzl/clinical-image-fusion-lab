@@ -1,0 +1,17 @@
+# Reused research and software
+
+This is an independent adaptation and learning demonstration, not a new fusion algorithm or a reproduction of the original papers' reported results.
+
+- **HEALNet:** Konstantin Hemker, Nikola Simidjievski and Mateja Jamnik, *HEALNet: Multimodal Fusion for Heterogeneous Biomedical Data*, NeurIPS 2024. https://arxiv.org/abs/2311.09115 . Code: https://github.com/konst-int-i/healnet , commit `90459b65a3d4a4ef9fd405671c457b5a1163cc7d`, Apache-2.0. The model file and complete upstream license are retained in `vendor/healnet/`. Helpers there credit `lucidrains/perceiver-pytorch` as in upstream. We use a smaller explicitly configured model and a frozen image encoder on a different classification task. Local changes copy the input modality list and remove a silent exception handler so invalid attention fails visibly. We do not claim the original TCGA experiment or results.
+- **MetaBlock:** André G. C. Pacheco and Renato A. Krohling, *An attention-based mechanism to combine images and metadata in deep learning models applied to skin cancer classification*. Author's code: https://github.com/paaatcha/MetaBlock , commit `e283174409f5e5685cb871bbb9e85c26c3a53c65`, MIT. The original 749-byte module and complete upstream license are retained in `vendor/metablock/`. A separate local wrapper projects frozen ResNet features and trains a classification head; this is not the authors' original benchmark pipeline.
+- **PAD-UFES-20:** Pacheco et al., *Data in Brief* 32, 106221 (2020), https://doi.org/10.1016/j.dib.2020.106221 . Official data version 1: https://doi.org/10.17632/zr7vgbcyr2.1 , CC BY 4.0. Preserve attribution and note preprocessing/resizing in exported examples. Images are smartphone clinical photographs, not dermoscopy, CT, MRI or pathology slides. Original source reports mixed diagnostic verification; all cancer classes are biopsy-proven, while some non-cancer labels are clinical consensus. This does not establish representative screening prevalence.
+- **PyTorch / torchvision:** official ImageNet-pretrained ResNet18 backbone and official preprocessing. Its weights are frozen; only local prediction/fusion heads are trained. Weight URL, SHA-256 and library versions are recorded with the feature cache.
+- **Research workflow assistance:** Kassis, T., Agarwal, V., He, Y., Patel, D., & Brueckner, A. M. (2026). *Scientific Agent Skills: A Library of Procedural Knowledge for Research Agents*. https://doi.org/10.48550/arXiv.2609.00065 . Used the literature-review procedure for source comparison/attribution; latest arXiv record checked 2026-11-17. AI-assisted implementation and review do not constitute clinical validation.
+
+Repository popularity is not evidence of predictive quality. Authors' results are never copied into this demonstration's measured-results tables.
+
+## Inference runtime and pretrained image encoder
+
+The static demo redistributes ONNX Runtime Web1.31.1 (Microsoft,MIT). Its LICENSE and ThirdPartyNotices are retained under `app/static/runtime/`. Only the WebAssembly build is used; computation occurs on the visitor's CPU.
+
+The image encoder uses the publicly distributed torchvision ResNet18 IMAGENET1K_V1 weights. `data/prepared/encoder-provenance.json` records the original weight URL and SHA256. Exported ONNX weights are derived from this frozen encoder and the locally trained heads; neither the pretrained backbone nor the upstream fusion algorithms are claimed as original inventions.

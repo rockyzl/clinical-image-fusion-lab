@@ -1,0 +1,6 @@
+{
+  "run": "/home/lu2/dev/personal/projects/healthcare/clinical-image-fusion-lab/runs/validation-v2",
+  "start_sha256": "7312ed1303a97ffb95e125f85a89f52e2c5070c445bef28bf81228b7b5fcbd07",
+  "selection_sha256": "12fd0dcbc8975120ebd63a332e3e017886fd9a62fbd21d4019cac0bbd86c045c",
+  "partition": "validation"
+}

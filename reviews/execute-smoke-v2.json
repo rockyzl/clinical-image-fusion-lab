@@ -1,0 +1,78 @@
+{
+  "decision": "approved",
+  "scope": "execute-only",
+  "purpose": "smoke",
+  "reviewer": "/root/oncology_model_review",
+  "reviewer_tool": "collaboration",
+  "proposal_sha256": "453cc9319e1d64958266a1d73d0c7fa6e97c6de5c2b7987a74564f66e59e0236",
+  "proposal_semantic_sha256": "85f65eacad87177b2faa8664ee4816996205ed215175889b44d5a1bf77b77000",
+  "nonce": "f889dd67-33d3-4552-9ab8-ba37125db76a",
+  "reviewed_at": "2026-11-17T21:28:20.343424+00:00",
+  "expires_at": "2026-11-17T23:28:20.343424+00:00",
+  "command": [
+    "/home/lu2/dev/personal/projects/healthcare/clinical-image-fusion-lab/.venv/bin/python",
+    "-m",
+    "src.supervisor",
+    "--proposal",
+    "/home/lu2/dev/personal/projects/healthcare/clinical-image-fusion-lab/reviews/smoke-v2-proposal.json",
+    "--review",
+    "/home/lu2/dev/personal/projects/healthcare/clinical-image-fusion-lab/reviews/execute-smoke-v2.json"
+  ],
+  "cwd": "/home/lu2/dev/personal/projects/healthcare/clinical-image-fusion-lab",
+  "evidence": {
+    "delta": "Protocol version 1.1 to 1.2 changes only formal-training wall-clock allowance from 1500/1800 to 2400/2700 seconds. Previously refused full-training feasibility attempt remains preserved and was never approved.",
+    "binding": "Independently rehashed every bound source, dependency, configuration, and prepared file. Source and dependencies match previously reviewed v1.1 smoke.",
+    "cache": "Frozen membership is identical except protocol digest; features, arrays, encoders and opaque label-file hashes match archived v1.1. No analytical validation or test label access performed by reviewer.",
+    "prepared_manifest_sha256": "adbaf022a5900e1eebc41eeeb879e78dcb21398177a557bcd3787cb6da5c5cdb",
+    "counts": {
+      "fit": {
+        "images": 1188,
+        "patients": 699,
+        "components": 566
+      },
+      "tune": {
+        "images": 261,
+        "patients": 151,
+        "components": 121
+      },
+      "validation": {
+        "images": 372,
+        "patients": 241,
+        "components": 211
+      },
+      "test": {
+        "images": 477,
+        "patients": 282,
+        "components": 234
+      }
+    },
+    "component_max_images": 17
+  },
+  "limits": {
+    "run": "runs/smoke-v2",
+    "trials": 5,
+    "seed": 17,
+    "epochs_per_trial": 2,
+    "first_rows_per_partition": 64,
+    "allowed_analytical_partitions": [
+      "fit",
+      "tune"
+    ],
+    "device": "cpu",
+    "threads": 4,
+    "soft_seconds": 120,
+    "hard_seconds": 135,
+    "rss_limit_gib": 6,
+    "paid_training_calls": 0,
+    "new_cloud_resources": 0
+  },
+  "findings": [],
+  "negative_permissions": [
+    "No formal training execution approval",
+    "No validation or test label access",
+    "No scientific, clinical or publication approval",
+    "No GPU or paid/cloud resources"
+  ],
+  "scientific_result": false,
+  "publication_ready": false
+}

@@ -1,0 +1,23 @@
+{
+  "reviewer": "/root/oncology_model_review",
+  "reviewed_at": "2026-11-17T21:24:41.482604+00:00",
+  "scope": "smoke-v1-completion-and-feasibility-review",
+  "decision": "full-training-not-approved",
+  "smoke_start_sha256": "418f9c9ea9138affa8fce929b21f21f8d6ba612fbdca18ea08492d4145c704ca",
+  "smoke_selection_sha256": "ce902f2d7f5eea15b7468041abd49c1d7faa73ecc6aad1dd9fb545912f4be4fb",
+  "smoke_resource_sha256": "3af3b7d78280cee71372e3754789246feac0c71708bf70f96f3a9e0cdb5d0b4c",
+  "smoke_verified": true,
+  "verified_trial_count": 5,
+  "finite_epoch_count": 10,
+  "smoke_seconds": 6.022072461997595,
+  "smoke_peak_rss_mib": 472.9140625,
+  "conservative_full_run_seconds": 1528.4190114351804,
+  "old_soft_limit_seconds": 1500,
+  "reason": "The frozen projection exceeds the soft deadline; proposal generation refused before formal training. No training execution approval was issued. Do not rerun timings selectively to obtain admission.",
+  "permitted_next_preparation": "A clearly documented local CPU wall-clock budget-only revision before any held-out access, with retained old artifacts, new protocol/preflight binding and fresh independently reviewed smoke. This note grants no model execution.",
+  "analytical_validation_reads": 0,
+  "analytical_test_reads": 0,
+  "scientific_result": false,
+  "publication_ready": false,
+  "clinical_validation": false
+}

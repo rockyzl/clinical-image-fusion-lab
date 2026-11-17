@@ -1,0 +1,168 @@
+{
+  "schema": 1,
+  "created_at": "2026-11-17T21:34:49.089451+00:00",
+  "mode": "validation",
+  "run": "runs/validation-v2",
+  "cwd": "/home/lu2/dev/personal/projects/healthcare/clinical-image-fusion-lab",
+  "nonce": "9162c3da-0961-4980-8f2d-24ddd5f92a11",
+  "binding": {
+    "protocol.json": "16442027f4d0318b4eaad57a067d7b5a4ced217633f63cb445ec09a718b865ae",
+    "pyproject.toml": "b62d8dad18abb4032db520c9b31c2c106a1ea7c4e832de174b8f263e782ee2af",
+    "uv.lock": "36b6531382ea9e8e330d641381c8c958c47ea397f0aa8f318c38f4259f78820a",
+    "src/__init__.py": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+    "src/common.py": "da8208625550d8ae6673d519a85330fcbe91f76d5515cacb8f8dafc50336cf1a",
+    "src/data.py": "b2ba0b2a11f5d5b4ab541abb6154ba565968754c6038af98a51f8a16789897fb",
+    "src/download.py": "18544f92fa5bb09d5d3eccd28217765c5b51147cda952b6cd57355ce0d1515e0",
+    "src/metrics.py": "76f7c55e77e33dafc5489c563ab17f7f3be7d9cc46f22727445d7de6ea66254d",
+    "src/models.py": "01f27021563b26928c310f96effe86f23f90055710ab416bcd67bf289aa60be9",
+    "src/run.py": "9f1d7792f164c5f51dd2d6c71469f14aa5848e2d12425aa39992091e11ff31eb",
+    "src/supervisor.py": "72574402db7426884f86bed713cec65ba4b6a190b45c0f4882df0add976901da",
+    "vendor/healnet/healnet.py": "f2185d2caf269e6a8ff76213cb548b7850cf0fec7df3146b4f238ea19b193933",
+    "vendor/healnet/upstream.py": "78e9c2b10455f6ad43a88ed4e0a646cbf6304bf52cac06a5140f49dbc4796820",
+    "vendor/metablock/metablock.py": "dc81fb507934f3073b774cd78cfd9cdefa4017e708f94f52984c6581dbbd75ce",
+    "tests/test_models_and_data.py": "aa9ecf4a15f03c3552eca472390a6bf98b5ae752020c29202a558f678d2dcc74",
+    "data/prepared/clinical-encoder.json": "520716ca984a1132d894ef11df167b9e4e53828516938585d6b75a976d68fc0d",
+    "data/prepared/clinical.npy": "df5871fade89c634ec71628a9d6efa908e97ec76560d5459e824eff6030d8193",
+    "data/prepared/counts.json": "29cfc17b20811850f02ce175cae94bf6f1601c56fd92ec3d2033a58fdacea6c7",
+    "data/prepared/encoder-provenance.json": "0c10c551224191da73728a0400743e7038228669a571e512cdb2710517163915",
+    "data/prepared/encoder.pt": "5e6ba3139430d5db40777491d069c58a069af38f1353641411df4d276cb968ce",
+    "data/prepared/features.csv": "e8acc7f2249fdf9ff19b91dd216cc92c5cbb21b6f0ea53aa30676193b7a1a5a0",
+    "data/prepared/image-scaler.json": "9df6d349c1f0663de12abde50fc5f4522786b32cdc18ebacc73dade5b8eaedba",
+    "data/prepared/image_features.npy": "bbfc6a2fcbc9c5f6febe9949f7f5b52779fe587f909bc9070124bb67c2784177",
+    "data/prepared/label-ingestion.json": "167e2cd6fff78cbea093d99476b77196627714cec2540289032904c1c1c595f4",
+    "data/prepared/labels-fit.json": "c4097d44618f087cf123a3f0f97273d0ba1347761153e22f13dade949eabcae6",
+    "data/prepared/labels-test.json": "3e663ec3c5b134bc779db4374229409bc83d8144a291955dedd169c7174fd1a3",
+    "data/prepared/labels-tune.json": "ea8286f7267e777ef3aa502a3ff52a141676f7ed3d3d26626019f643c0c14966",
+    "data/prepared/labels-validation.json": "3f70fe40ea6da69da52bf449c1eed21ffdf387224b360db48dcc02ddf84ee821",
+    "data/prepared/manifest.json": "adbaf022a5900e1eebc41eeeb879e78dcb21398177a557bcd3787cb6da5c5cdb",
+    "data/prepared/membership.json": "634dded3daee0d66ce2dd11c34a80423179252596c48f2494018f1e87725e71b"
+  },
+  "planned_trials": [
+    [
+      "clinical_linear",
+      17
+    ],
+    [
+      "clinical_linear",
+      29
+    ],
+    [
+      "clinical_linear",
+      43
+    ],
+    [
+      "image_linear",
+      17
+    ],
+    [
+      "image_linear",
+      29
+    ],
+    [
+      "image_linear",
+      43
+    ],
+    [
+      "concat_linear",
+      17
+    ],
+    [
+      "concat_linear",
+      29
+    ],
+    [
+      "concat_linear",
+      43
+    ],
+    [
+      "metablock",
+      17
+    ],
+    [
+      "metablock",
+      29
+    ],
+    [
+      "metablock",
+      43
+    ],
+    [
+      "healnet",
+      17
+    ],
+    [
+      "healnet",
+      29
+    ],
+    [
+      "healnet",
+      43
+    ]
+  ],
+  "label_access": {
+    "raw_ingestion": "public source labels mechanically partitioned only after membership frozen",
+    "allowed_analytical_partitions": [
+      "validation"
+    ]
+  },
+  "budgets": {
+    "device": "cpu",
+    "threads": 4,
+    "rss_limit_gib": 6,
+    "disk_limit_gib": 12,
+    "new_cloud_resources": 0,
+    "paid_training_calls": 0,
+    "fits": 15,
+    "training_soft_seconds": 2400,
+    "training_hard_seconds": 2700,
+    "smoke_seconds": 120,
+    "worker_progress_timeout_seconds": 120
+  },
+  "environment": {
+    "python": "3.13.12 (main, Mar 10 2026, 18:17:38) [Clang 21.1.4 ]",
+    "torch": "2.15.0+cpu",
+    "platform": "Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+    "machine": "x86_64",
+    "cpu_count": 16,
+    "threads": 4
+  },
+  "memory_estimate_mib": {
+    "mapped_cache_and_input_batches": 256,
+    "labels_and_clinical": 5,
+    "parameters_gradients_optimizer": 32,
+    "activations_temporaries": 192,
+    "framework_and_python": 768,
+    "predictions_checkpoint_buffers": 64,
+    "safety_margin": 512
+  },
+  "scientific_result": false,
+  "publication_ready": false,
+  "command": [
+    "/home/lu2/dev/personal/projects/healthcare/clinical-image-fusion-lab/.venv/bin/python",
+    "-m",
+    "src.supervisor",
+    "--proposal",
+    "/home/lu2/dev/personal/projects/healthcare/clinical-image-fusion-lab/reviews/validation-v2-proposal.json",
+    "--review",
+    "/home/lu2/dev/personal/projects/healthcare/clinical-image-fusion-lab/reviews/execute-validation-v2.json"
+  ],
+  "selection": "/home/lu2/dev/personal/projects/healthcare/clinical-image-fusion-lab/runs/train-v2/selection.json",
+  "selection_sha256": "12fd0dcbc8975120ebd63a332e3e017886fd9a62fbd21d4019cac0bbd86c045c",
+  "checkpoint_hashes": {
+    "/home/lu2/dev/personal/projects/healthcare/clinical-image-fusion-lab/runs/train-v2/checkpoints/clinical_linear-17.pt": "fca661e458a1d462b8f7c77699db5834bd0907c237aa3245d625bb9b63c96c82",
+    "/home/lu2/dev/personal/projects/healthcare/clinical-image-fusion-lab/runs/train-v2/checkpoints/clinical_linear-29.pt": "6e6ef94101c111b64d1cd468899ce6f807aca92395389228ca0a3ced373e00af",
+    "/home/lu2/dev/personal/projects/healthcare/clinical-image-fusion-lab/runs/train-v2/checkpoints/clinical_linear-43.pt": "d3ee3df39b935bca8bb88a87e844a7468f6af15c387458d41ce7f997286b7419",
+    "/home/lu2/dev/personal/projects/healthcare/clinical-image-fusion-lab/runs/train-v2/checkpoints/image_linear-17.pt": "8c96bb4156f1695f5ea924e307965903e12eaf2880521f818069cee66b3ffe7c",
+    "/home/lu2/dev/personal/projects/healthcare/clinical-image-fusion-lab/runs/train-v2/checkpoints/image_linear-29.pt": "d05fc92868403ff05c21a1e0c733cc6c2ecbebb8928c158ebeed65f74769797e",
+    "/home/lu2/dev/personal/projects/healthcare/clinical-image-fusion-lab/runs/train-v2/checkpoints/image_linear-43.pt": "f7be5bbb773f78d4c5e042bc9c871148e167e0cf45f9df568b44ed6285027bd1",
+    "/home/lu2/dev/personal/projects/healthcare/clinical-image-fusion-lab/runs/train-v2/checkpoints/concat_linear-17.pt": "532d928995135b138db89635c3eb144dbfcbc9c0085ecd158113235a4dce19a6",
+    "/home/lu2/dev/personal/projects/healthcare/clinical-image-fusion-lab/runs/train-v2/checkpoints/concat_linear-29.pt": "62b2d23dd6ed53790d36c195458afe848ad49008d37fe05ba13814d351e1c2b1",
+    "/home/lu2/dev/personal/projects/healthcare/clinical-image-fusion-lab/runs/train-v2/checkpoints/concat_linear-43.pt": "c0013c449f14c9286e00c615950e4599c92e55f255a16ec21d26cc70cce3bd73",
+    "/home/lu2/dev/personal/projects/healthcare/clinical-image-fusion-lab/runs/train-v2/checkpoints/metablock-17.pt": "7e1dc56d433aa84ce5beb73ccdef6bf26998bd5112e142c00cfbffa0f43c2f70",
+    "/home/lu2/dev/personal/projects/healthcare/clinical-image-fusion-lab/runs/train-v2/checkpoints/metablock-29.pt": "08a43dbf9ee26e221c27c5b848ea033846d77c32949b5363a4c5166f173a892c",
+    "/home/lu2/dev/personal/projects/healthcare/clinical-image-fusion-lab/runs/train-v2/checkpoints/metablock-43.pt": "fc06df1f5618a4f2182e5e16db4a731b7a5478fff34394c43667aaa7bde1ae71",
+    "/home/lu2/dev/personal/projects/healthcare/clinical-image-fusion-lab/runs/train-v2/checkpoints/healnet-17.pt": "4a3102106fce7dac659498dad65933b8dc939132094c1773bd2e3276f132d66d",
+    "/home/lu2/dev/personal/projects/healthcare/clinical-image-fusion-lab/runs/train-v2/checkpoints/healnet-29.pt": "abfb59099541f27ef19836b0a6eb81691278ef37213cc4f780fa0d1c013625f7",
+    "/home/lu2/dev/personal/projects/healthcare/clinical-image-fusion-lab/runs/train-v2/checkpoints/healnet-43.pt": "04f72e88301e3a74f3e7415bbc37a951d8f9b499219f7fc1c675c7d62bd0f7f7"
+  }
+}

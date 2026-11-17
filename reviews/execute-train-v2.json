@@ -1,0 +1,69 @@
+{
+  "decision": "approved",
+  "scope": "execute-only",
+  "purpose": "train",
+  "reviewer": "/root/oncology_model_review",
+  "reviewer_tool": "collaboration",
+  "proposal_sha256": "b707ecc605e00be9614343d5a3bb52ec79f96370b9b6c0a6282e25c698e908fc",
+  "proposal_semantic_sha256": "317c40057aa55bbcb0b20f5c92c13688f2d58ab0e7e05a6fbeaec00d041928fd",
+  "nonce": "bbf5aa36-b62a-462d-9542-a77ce1d894ec",
+  "reviewed_at": "2026-11-17T21:29:58.466816+00:00",
+  "expires_at": "2026-11-17T23:29:58.466816+00:00",
+  "command": [
+    "/home/lu2/dev/personal/projects/healthcare/clinical-image-fusion-lab/.venv/bin/python",
+    "-m",
+    "src.supervisor",
+    "--proposal",
+    "/home/lu2/dev/personal/projects/healthcare/clinical-image-fusion-lab/reviews/train-v2-proposal.json",
+    "--review",
+    "/home/lu2/dev/personal/projects/healthcare/clinical-image-fusion-lab/reviews/execute-train-v2.json"
+  ],
+  "cwd": "/home/lu2/dev/personal/projects/healthcare/clinical-image-fusion-lab",
+  "evidence": {
+    "smoke_start_sha256": "66bd31bdb3807406ee3a8b3ebbacd3eff8dfdd44de6e71cddedc54aeedabed3a",
+    "smoke_selection_sha256": "6f6354b624b1f32e27e7924a1c54f32abe402ef3755a783f09b6e305b09665de",
+    "smoke_resource_sha256": "5f72ed5871f282bece687a09ff013183fd35fb984d36bfe999d47a6321f04ef5",
+    "smoke": "Independently replayed exact source/cache binding, predecessor approval and full launch command, hash-chain journal, all five trial identities, finite two-epoch curves, saved checkpoint hashes/semantics and restored epochs. Real frozen-image cache and clinical tensors, CPU backend, full batch size 64, AdamW, weighted CE and tuning path executed. All checkpoint reloads selected epoch 2.",
+    "resources": "External process-tree monitor observed CPU-only success, no cleanup actions, return code zero, sampled peak 341.09375 MiB and elapsed 4.017385407998518 seconds. Peak is sampled rather than allocator-exact; full memory estimate 1829 MiB includes 512 MiB safety margin under 6144 MiB cap. Available memory over 14 GiB; data inventory about 7.01 GiB under 12 GiB and free disk over 560 GiB.",
+    "runtime": "Independently recalculated 24 batches per epoch, all 15 fits at the full 100-epoch cap, 1.8 multiplier plus 90 seconds = 1415.2819730190095 seconds, below reviewed 2400-second soft drain. No reliance on early stopping to pass feasibility. Prior v1.1 budget failure is preserved.",
+    "protected_labels": "Only fit/tune were analytically read once by smoke. No validation/test evaluation claim exists; reviewer did not open either held-out label file."
+  },
+  "limits": {
+    "trials": 15,
+    "models": [
+      "clinical_linear",
+      "image_linear",
+      "concat_linear",
+      "metablock",
+      "healnet"
+    ],
+    "seeds": [
+      17,
+      29,
+      43
+    ],
+    "maximum_epochs": 100,
+    "patience": 15,
+    "selection": "Inner tune weighted cross entropy only; no ensemble or best-test-seed selection",
+    "device": "cpu",
+    "threads": 4,
+    "soft_seconds": 2400,
+    "hard_seconds": 2700,
+    "rss_limit_gib": 6,
+    "new_cloud_resources": 0,
+    "paid_training_calls": 0
+  },
+  "findings": [],
+  "conditions": [
+    "Convergence review is required before either outer-validation or test access, particularly any epoch-capped baseline.",
+    "Preserve this run if it fails; no unreviewed selective reruns, budget extensions, feature changes or alternate seeds.",
+    "Smoked checkpoints demonstrate execution, not accuracy or convergence; later review must inspect all formal curves."
+  ],
+  "negative_permissions": [
+    "No validation or test label access",
+    "No clinical validation or publication claims",
+    "No GPU, paid calls, cloud resource provisioning or unplanned fits"
+  ],
+  "scientific_result": false,
+  "publication_ready": false
+}

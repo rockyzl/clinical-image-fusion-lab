@@ -1,0 +1,8 @@
+{
+  "reason": "Conservative smoke projection1528.4 seconds exceeded1500-second soft limit; no formal training started",
+  "change": "CPU wall allowance only:2400soft/2700hard; no model/split/seed/preprocessing changes",
+  "new_cloud_resources": 0,
+  "heldout_analytical_reads": 0,
+  "original_smoke": "runs/smoke-v1",
+  "preserved_prepared": "data/archive/prepared-v1.1"
+}

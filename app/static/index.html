@@ -1,0 +1,279 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Clinical Image Fusion Lab</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <a class="brand" href="#"
+        >Clinical Image Fusion Lab
+        <span>Lu Zhang · independent research</span></a
+      ><button id="language" class="quiet">中文讲解</button>
+    </header>
+    <main>
+      <section class="intro">
+        <p
+          class="eyebrow"
+          data-en="A real photo. Its own clinical record."
+          data-zh="一张真实照片，以及它对应的临床资料。"
+        ></p>
+        <h1
+          data-en="Does more context help<br>the model read the photo?"
+          data-zh="除了照片，<br>临床资料能帮上忙吗？"
+        ></h1>
+        <p
+          class="lead"
+          data-en="Explore public skin-lesion records. Compare a model that sees the photograph, one that reads the clinical record, and models that combine both."
+          data-zh="选一条公开的皮肤病变记录，看看只看照片、只读临床资料、把两者结合的模型，分别会给出什么结果。"
+        ></p>
+        <p
+          class="scope"
+          data-en="Research demonstration · public, de-identified records · not a diagnostic service"
+          data-zh="独立研究演示 · 公开去标识记录 · 不用于诊断"
+        ></p>
+      </section>
+      <section aria-labelledby="case-heading" class="case-section">
+        <div class="section-title">
+          <div>
+            <p
+              class="eyebrow"
+              data-en="Try a paired example"
+              data-zh="先看一条配对记录"
+            ></p>
+            <h2
+              id="case-heading"
+              data-en="The two inputs belong together."
+              data-zh="这两份资料属于同一条记录。"
+            ></h2>
+          </div>
+          <label
+            ><span data-en="Public example" data-zh="选择公开样本"></span
+            ><select id="case-select" aria-label="Public example"></select
+          ></label>
+        </div>
+        <div id="load-status" role="status">Loading public examples…</div>
+        <div class="pair">
+          <figure class="photo-panel">
+            <div class="panel-heading">
+              <span
+                data-en="What the camera captured"
+                data-zh="照片里有什么"
+              ></span
+              ><span class="modality" data-en="Photo" data-zh="影像"></span>
+            </div>
+            <img
+              id="case-image"
+              alt="Public clinical skin-lesion photograph"
+              width="448"
+              height="448"
+            />
+            <figcaption
+              data-en="Actual PAD-UFES-20 photograph, resized and center-cropped to the model's 224 × 224 input. The crop may omit surrounding skin."
+              data-zh="真实 PAD-UFES-20 照片，按模型输入缩放并裁为 224 × 224。裁剪可能去掉周围皮肤。"
+            ></figcaption>
+          </figure>
+          <div class="record-panel">
+            <div class="panel-heading">
+              <span
+                data-en="What the record adds"
+                data-zh="临床资料补充了什么"
+              ></span
+              ><span
+                class="modality"
+                data-en="Clinical data"
+                data-zh="临床数据"
+              ></span>
+            </div>
+            <p class="record-id" id="record-id"></p>
+            <dl id="clinical-fields"></dl>
+            <details>
+              <summary
+                data-en="See all 14 input fields"
+                data-zh="查看全部 14 个输入字段"
+              ></summary>
+              <dl id="all-fields"></dl>
+            </details>
+            <p
+              class="record-note"
+              data-en="The published diagnosis is kept out of the model's inputs. The photo and record are joined by their original image ID."
+              data-zh="数据集中的诊断标签不会作为模型输入。照片和临床资料通过原始影像编号配对。"
+            ></p>
+          </div>
+        </div>
+        <div class="run-row">
+          <button
+            class="primary"
+            id="run"
+            disabled
+            data-en="Run the models"
+            data-zh="让模型计算"
+          ></button>
+          <p id="run-status" role="status" aria-live="polite"></p>
+        </div>
+        <div id="prediction" hidden>
+          <h3
+            data-en="Same example, different information."
+            data-zh="同一个样本，提供不同的信息。"
+          ></h3>
+          <p
+            data-en="These are model scores across six dataset categories, not validated probabilities of disease. Each model can be wrong."
+            data-zh="这是模型对六类标签的打分，不是经过临床验证的患病概率。每个模型都可能出错。"
+          ></p>
+          <div class="predictions" id="prediction-cards"></div>
+          <details>
+            <summary
+              data-en="Compare two more complex fusion models"
+              data-zh="再看两种更复杂的融合模型"
+            ></summary>
+            <div
+              class="predictions advanced"
+              id="advanced-prediction-cards"
+            ></div>
+          </details>
+          <div class="answer-key">
+            <span
+              data-en="Published dataset label"
+              data-zh="数据集提供的标签"
+            ></span
+            ><strong id="record-label"></strong><span id="example-split"></span>
+          </div>
+        </div>
+      </section>
+      <section class="evaluation">
+        <p
+          class="eyebrow"
+          data-en="Check the whole held-out group"
+          data-zh="不能只看一个成功例子"
+        ></p>
+        <h2
+          data-en="Did combining the inputs actually help?"
+          data-zh="加入临床资料后，整体表现变好了吗？"
+        ></h2>
+        <p
+          data-en="We trained five model types with three random seeds each. Every patient's images stay in one partition. The held-out test group was evaluated after model selection was frozen."
+          data-zh="五类模型各用三个随机种子训练。同一患者的照片留在同一数据分区，先锁定模型，再评估保留测试集。"
+        ></p>
+        <div id="results-summary" class="finding">
+          Evaluation is not yet published.
+        </div>
+        <div class="table-scroll">
+          <table>
+            <thead>
+              <tr>
+                <th data-en="Model inputs / method" data-zh="输入与方法"></th>
+                <th
+                  data-en="Macro-F1 (higher is better)"
+                  data-zh="Macro-F1（越高越好）"
+                ></th>
+                <th
+                  data-en="95% resampling interval"
+                  data-zh="95% 重采样区间"
+                ></th>
+              </tr>
+            </thead>
+            <tbody id="metrics"></tbody>
+          </table>
+        </div>
+        <p
+          class="small"
+          data-en="The clinical-only models reached the 100-epoch training limit while still improving. Treat them as budget-capped references; this experiment does not establish which architecture is best after full optimization."
+          data-zh="只看临床资料的模型达到 100 轮训练上限时仍在改善。它们是受训练预算限制的参考，不能据此断言充分优化后哪种结构最好。"
+        ></p>
+        <p
+          class="small"
+          data-en="Macro-F1 gives each diagnostic category equal weight. Scores are image-weighted within categories. Intervals resample whole patient/duplicate groups and are conditional on this dataset split and these fitted models."
+          data-zh="Macro-F1 让每个诊断类别具有同等权重，类别内按图片计数。区间按完整患者/重复图片组重采样，只反映当前分区与已训练模型的不确定性。"
+        ></p>
+        <details>
+          <summary
+            data-en="Training curves, data split and limitations"
+            data-zh="训练过程、数据划分与局限"
+          ></summary>
+          <div id="training-details"></div>
+          <img
+            id="curves"
+            src="assets/training-curves.svg"
+            alt="Training and inner-tuning loss curves for all model fits"
+            loading="lazy"
+          />
+          <p
+            data-en="This is one Brazilian clinical-photo dataset, with mixed biopsy and clinical-consensus labels. No external hospital, CT/MRI, pathology-slide or prospective validation is claimed. Exact duplicates are grouped; near duplicates may remain. The image encoder is frozen, not fine-tuned end to end."
+            data-zh="这是一个巴西临床照片数据集，标签来自活检或临床共识。没有外部医院、CT/MRI、病理切片或前瞻性验证。已按精确重复图片分组，近似重复仍可能存在。图像编码器被冻结，没有端到端微调。"
+          ></p>
+        </details>
+      </section>
+      <section class="how">
+        <p class="eyebrow" data-en="How it works" data-zh="它是怎样实现的"></p>
+        <h2
+          data-en="One small experiment, from data to prediction."
+          data-zh="从真实数据到可运行预测。"
+        ></h2>
+        <ol class="flow">
+          <li>
+            <b data-en="Match the inputs" data-zh="配对输入"></b>
+            <p
+              data-en="Join a real photograph and its clinical record by image ID. Keep patient groups separate."
+              data-zh="用影像编号连接真实照片和临床记录，再按患者分组。"
+            ></p>
+          </li>
+          <li>
+            <b data-en="Represent each input" data-zh="把输入变成数字"></b>
+            <p
+              data-en="A frozen ResNet18 extracts image features. A train-only encoder converts the 14 clinical fields into numbers."
+              data-zh="冻结的 ResNet18 提取图像特征；只在训练数据上拟合的预处理器编码 14 个临床字段。"
+            ></p>
+          </li>
+          <li>
+            <b data-en="Combine and compare" data-zh="融合并比较"></b>
+            <p
+              data-en="Linear controls, MetaBlock feature gating and a reduced HEALNet attention model produce six-category scores."
+              data-zh="线性基线、MetaBlock 门控和缩小的 HEALNet 注意力模型分别计算六类得分。"
+            ></p>
+          </li>
+          <li>
+            <b data-en="Run the saved models" data-zh="运行保存的模型"></b>
+            <p
+              data-en="ONNX Runtime executes exported model weights in your browser. The local Python API uses the same frozen checkpoints."
+              data-zh="ONNX Runtime 在浏览器里运行导出的模型权重。本地 Python API 使用同一批锁定的检查点。"
+            ></p>
+          </li>
+        </ol>
+        <details>
+          <summary
+            data-en="Model versions, evidence and reuse credits"
+            data-zh="模型版本、证据与开源来源"
+          ></summary>
+          <pre id="model-evidence"></pre>
+          <p>
+            <a href="https://github.com/paaatcha/MetaBlock">MetaBlock · MIT</a>
+            ·
+            <a href="https://github.com/konst-int-i/healnet"
+              >HEALNet · Apache-2.0</a
+            >
+            ·
+            <a href="https://data.mendeley.com/datasets/zr7vgbcyr2/1"
+              >PAD-UFES-20 · CC BY 4.0</a
+            >
+          </p>
+          <p
+            data-en="Adapted from the authors' published modules. This small experiment does not reproduce their published benchmarks. There is no LLM, chat agent or paid model API in this page."
+            data-zh="基于作者公开模块改编，这个小型实验没有复现原论文的完整基准。本页不使用大语言模型、聊天 Agent 或付费模型 API。"
+          ></p>
+        </details>
+      </section>
+    </main>
+    <footer>
+      <span>Lu Zhang · Clinical Image Fusion Lab</span
+      ><a id="github" href="https://github.com">Source & reproducibility</a
+      ><span
+        data-en="Research prototype · no medical advice"
+        data-zh="研究原型 · 不提供医疗建议"
+      ></span>
+    </footer>
+    <script src="runtime/ort.min.js"></script>
+    <script type="module" src="app.js"></script>
+  </body>
+</html>

@@ -1,0 +1,59 @@
+{
+  "retrieved_at": "2026-11-17T20:57:54.326236+00:00",
+  "files": [
+    {
+      "url": "https://raw.githubusercontent.com/konst-int-i/healnet/90459b65a3d4a4ef9fd405671c457b5a1163cc7d/healnet/models/healnet.py",
+      "path": "vendor/healnet/healnet.py",
+      "sha256": "78e9c2b10455f6ad43a88ed4e0a646cbf6304bf52cac06a5140f49dbc4796820",
+      "bytes": 16277
+    },
+    {
+      "url": "https://raw.githubusercontent.com/konst-int-i/healnet/90459b65a3d4a4ef9fd405671c457b5a1163cc7d/LICENSE",
+      "path": "vendor/healnet/LICENSE",
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+      "bytes": 11357
+    },
+    {
+      "url": "https://raw.githubusercontent.com/konst-int-i/healnet/90459b65a3d4a4ef9fd405671c457b5a1163cc7d/README.md",
+      "path": "docs/sources/healnet-README.md",
+      "sha256": "442b8a7fc9fceb91e18362dcb437a7de3d3e72f1f96b196d5b0496630edd5786",
+      "bytes": 9661
+    },
+    {
+      "url": "https://raw.githubusercontent.com/paaatcha/MetaBlock/e283174409f5e5685cb871bbb9e85c26c3a53c65/my_models/metablock.py",
+      "path": "vendor/metablock/metablock.py",
+      "sha256": "dc81fb507934f3073b774cd78cfd9cdefa4017e708f94f52984c6581dbbd75ce",
+      "bytes": 749
+    },
+    {
+      "url": "https://raw.githubusercontent.com/paaatcha/MetaBlock/e283174409f5e5685cb871bbb9e85c26c3a53c65/LICENSE",
+      "path": "vendor/metablock/LICENSE",
+      "sha256": "068edd869a8cbf821a4da23c9503c8f3ef0ad51f06aeeb365fbe7f86f2f93766",
+      "bytes": 1070
+    },
+    {
+      "url": "https://raw.githubusercontent.com/paaatcha/MetaBlock/e283174409f5e5685cb871bbb9e85c26c3a53c65/README.md",
+      "path": "docs/sources/metablock-README.md",
+      "sha256": "e90fe9d7a62d2f5865e9170db0f5f4864a0c1563fef20a4840fdf51648f82568",
+      "bytes": 2251
+    },
+    {
+      "url": "https://data.mendeley.com/public-api/datasets/zr7vgbcyr2/files?folder_id=root&version=1",
+      "path": "docs/sources/dataset-root-files.json",
+      "sha256": "339fd7ca3a30b3b31d7b40b36538b2456c98e1ea95f47245e2305693c88dc2b0",
+      "bytes": 701
+    },
+    {
+      "url": "https://data.mendeley.com/public-api/datasets/zr7vgbcyr2/files?folder_id=6839ab16-69b8-4a2f-ba12-a3ccda4c89f5&version=1",
+      "path": "docs/sources/dataset-image-files.json",
+      "sha256": "3171c85ad1ab6145a8543a8f8e8afa66c1e38a4884f2a3f2722331343e7bd476",
+      "bytes": 2308
+    },
+    {
+      "url": "https://data.mendeley.com/public-files/datasets/zr7vgbcyr2/files/fa850265-57da-48f0-ba3e-998b3e44b1f6/file_downloaded",
+      "path": "data/raw/metadata.csv",
+      "sha256": "14d145235cedb022548257acb0d84dcd949e2c916f65d2baa7c38ed5339e9527",
+      "bytes": 316209
+    }
+  ]
+}

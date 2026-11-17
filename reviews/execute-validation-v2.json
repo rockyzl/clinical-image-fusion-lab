@@ -1,0 +1,46 @@
+{
+  "decision": "approved",
+  "scope": "execute-only",
+  "purpose": "validation",
+  "reviewer": "/root/oncology_model_review",
+  "reviewer_tool": "collaboration",
+  "proposal_sha256": "161a5706bdabeec5214754b4fe706825852e97a81cdd86b97ff7405c164bfb7e",
+  "proposal_semantic_sha256": "356fa18ca064b265a723c62af2b578a978df8793e356d2db078920f10b2e5903",
+  "nonce": "9162c3da-0961-4980-8f2d-24ddd5f92a11",
+  "reviewed_at": "2026-11-17T21:36:01.936575+00:00",
+  "expires_at": "2026-11-17T23:36:01.936575+00:00",
+  "command": [
+    "/home/lu2/dev/personal/projects/healthcare/clinical-image-fusion-lab/.venv/bin/python",
+    "-m",
+    "src.supervisor",
+    "--proposal",
+    "/home/lu2/dev/personal/projects/healthcare/clinical-image-fusion-lab/reviews/validation-v2-proposal.json",
+    "--review",
+    "/home/lu2/dev/personal/projects/healthcare/clinical-image-fusion-lab/reviews/execute-validation-v2.json"
+  ],
+  "cwd": "/home/lu2/dev/personal/projects/healthcare/clinical-image-fusion-lab",
+  "selection_sha256": "12fd0dcbc8975120ebd63a332e3e017886fd9a62fbd21d4019cac0bbd86c045c",
+  "evidence": {
+    "training": "All 15 exact fits completed cleanly in 239.01434502399934 seconds; sampled peak process-tree RSS 580.65234375 MiB; zero cleanup actions or failure events. Independently replayed 1110-event hash chain, start/approval/command bindings, trial identities, curves and checkpoint semantic/physical hashes. Only three expected epoch-cap warnings.",
+    "checkpoint_replay": "Independently loaded all 15 frozen checkpoints and recomputed their selected weighted CE on all 261 inner-tune images. Maximum absolute discrepancy from recorded selected loss: 1.1159740376243121e-07. Reviewer analytically read inner-tune labels once; no outer-validation/test labels read. No retraining or checkpoint change.",
+    "primary_contrast": "Image-linear selected epochs 10/10/14 and concat-linear 18/18/18. All six stopped after 15 non-improving tune epochs; later tune loss was worse. Prespecified concat-minus-image contrast is not constrained by the clinical-only epoch cap.",
+    "exploratory_models": "MetaBlock selected epochs 28/26/27 and stopped after 15 stale epochs. HEALNet selected epoch 3 for each seed and subsequently overfit sharply; early stopping correctly restored epoch 3. This is an observed limitation of this reduced fixed recipe, not architecture superiority or general HEALNet performance.",
+    "capped_control": "All three clinical-linear fits remain explicitly budget-capped; best epochs 95/99/99 with declining tuning loss near the cap. Not demonstrated converged. They may be displayed only as budget-limited descriptive controls; no claim fusion outperforms an optimized clinical baseline.",
+    "interpretation_plan_sha256": "446eb9db32fee55afca8c3c55dea8e9b1041e27673dcb0bfdea0f901f9f7d495",
+    "data_boundary": "Outer validation is 372 images in 211 target-free patient/ambiguous-lesion/exact-RGB components. All 15 checkpoints and preprocessing were frozen before this approval."
+  },
+  "conditions": [
+    "Execute one outer-validation evaluation of every frozen model/seed; no model selection, retraining, seed filtering or ensemble selection from these outputs.",
+    "Retain the pre-held-out interpretation boundary and clearly display capped clinical baselines and HEALNet overfitting.",
+    "Test access requires a separate independent execute-only review."
+  ],
+  "negative_permissions": [
+    "No test label access",
+    "No training, feature changes, model changes or extra fits",
+    "No clinical efficacy, convergence of capped models, architecture superiority or publication approval",
+    "No paid/cloud/GPU execution"
+  ],
+  "scientific_result": false,
+  "publication_ready": false,
+  "clinical_validation": false
+}

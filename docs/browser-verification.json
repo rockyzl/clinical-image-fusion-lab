@@ -1,0 +1,71 @@
+{
+  "url": "http://127.0.0.1:8788",
+  "cases_tested": 12,
+  "real_inference": true,
+  "browser": "159.0.8154.6",
+  "language_switch": "passed",
+  "mobile_overflow": false,
+  "console_errors": [],
+  "cases": [
+    {
+      "case_id": "PAT_1019_110_194.png",
+      "max_probability_error": 1.6580292537815566e-06,
+      "elapsed_ms": 1525.199999999255
+    },
+    {
+      "case_id": "PAT_1026_124_206.png",
+      "max_probability_error": 5.307752418692857e-07,
+      "elapsed_ms": 231.19999999925494
+    },
+    {
+      "case_id": "PAT_120_183_623.png",
+      "max_probability_error": 1.7714359064335827e-06,
+      "elapsed_ms": 209.40000000223517
+    },
+    {
+      "case_id": "PAT_135_202_105.png",
+      "max_probability_error": 1.859940161191842e-07,
+      "elapsed_ms": 213.39999999850988
+    },
+    {
+      "case_id": "PAT_233_354_828.png",
+      "max_probability_error": 9.215440286425292e-06,
+      "elapsed_ms": 243.19999999925494
+    },
+    {
+      "case_id": "PAT_233_354_935.png",
+      "max_probability_error": 3.5490318417708e-06,
+      "elapsed_ms": 263.9000000022352
+    },
+    {
+      "case_id": "PAT_1107_427_352.png",
+      "max_probability_error": 1.3289405922378705e-06,
+      "elapsed_ms": 228.90000000223517
+    },
+    {
+      "case_id": "PAT_1216_759_365.png",
+      "max_probability_error": 9.489065924683793e-07,
+      "elapsed_ms": 222.29999999701977
+    },
+    {
+      "case_id": "PAT_113_172_610.png",
+      "max_probability_error": 9.47537927009634e-07,
+      "elapsed_ms": 227
+    },
+    {
+      "case_id": "PAT_271_418_14.png",
+      "max_probability_error": 1.3073875743674357e-06,
+      "elapsed_ms": 200.90000000223517
+    },
+    {
+      "case_id": "PAT_1064_272_668.png",
+      "max_probability_error": 1.2146358683295944e-06,
+      "elapsed_ms": 213.80000000074506
+    },
+    {
+      "case_id": "PAT_1100_402_375.png",
+      "max_probability_error": 6.927115990817967e-07,
+      "elapsed_ms": 225.19999999925494
+    }
+  ]
+}

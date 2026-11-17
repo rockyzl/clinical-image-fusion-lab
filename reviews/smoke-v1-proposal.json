@@ -1,0 +1,110 @@
+{
+  "schema": 1,
+  "created_at": "2026-11-17T21:20:35.803800+00:00",
+  "mode": "smoke",
+  "run": "runs/smoke-v1",
+  "cwd": "/home/lu2/dev/personal/projects/healthcare/clinical-image-fusion-lab",
+  "nonce": "1b840a1f-45bf-4adb-a7be-98d46d8a5a37",
+  "binding": {
+    "protocol.json": "c7ab8bfa6677e9206094a1d5dce1a529c7f9e6d27609ba0f3b96829368941fe3",
+    "pyproject.toml": "b62d8dad18abb4032db520c9b31c2c106a1ea7c4e832de174b8f263e782ee2af",
+    "uv.lock": "36b6531382ea9e8e330d641381c8c958c47ea397f0aa8f318c38f4259f78820a",
+    "src/__init__.py": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+    "src/common.py": "da8208625550d8ae6673d519a85330fcbe91f76d5515cacb8f8dafc50336cf1a",
+    "src/data.py": "b2ba0b2a11f5d5b4ab541abb6154ba565968754c6038af98a51f8a16789897fb",
+    "src/download.py": "18544f92fa5bb09d5d3eccd28217765c5b51147cda952b6cd57355ce0d1515e0",
+    "src/metrics.py": "76f7c55e77e33dafc5489c563ab17f7f3be7d9cc46f22727445d7de6ea66254d",
+    "src/models.py": "01f27021563b26928c310f96effe86f23f90055710ab416bcd67bf289aa60be9",
+    "src/run.py": "9f1d7792f164c5f51dd2d6c71469f14aa5848e2d12425aa39992091e11ff31eb",
+    "src/supervisor.py": "72574402db7426884f86bed713cec65ba4b6a190b45c0f4882df0add976901da",
+    "vendor/healnet/healnet.py": "f2185d2caf269e6a8ff76213cb548b7850cf0fec7df3146b4f238ea19b193933",
+    "vendor/healnet/upstream.py": "78e9c2b10455f6ad43a88ed4e0a646cbf6304bf52cac06a5140f49dbc4796820",
+    "vendor/metablock/metablock.py": "dc81fb507934f3073b774cd78cfd9cdefa4017e708f94f52984c6581dbbd75ce",
+    "tests/test_models_and_data.py": "aa9ecf4a15f03c3552eca472390a6bf98b5ae752020c29202a558f678d2dcc74",
+    "data/prepared/clinical-encoder.json": "520716ca984a1132d894ef11df167b9e4e53828516938585d6b75a976d68fc0d",
+    "data/prepared/clinical.npy": "df5871fade89c634ec71628a9d6efa908e97ec76560d5459e824eff6030d8193",
+    "data/prepared/counts.json": "29cfc17b20811850f02ce175cae94bf6f1601c56fd92ec3d2033a58fdacea6c7",
+    "data/prepared/encoder-provenance.json": "0c10c551224191da73728a0400743e7038228669a571e512cdb2710517163915",
+    "data/prepared/encoder.pt": "5e6ba3139430d5db40777491d069c58a069af38f1353641411df4d276cb968ce",
+    "data/prepared/features.csv": "e8acc7f2249fdf9ff19b91dd216cc92c5cbb21b6f0ea53aa30676193b7a1a5a0",
+    "data/prepared/image-scaler.json": "9df6d349c1f0663de12abde50fc5f4522786b32cdc18ebacc73dade5b8eaedba",
+    "data/prepared/image_features.npy": "bbfc6a2fcbc9c5f6febe9949f7f5b52779fe587f909bc9070124bb67c2784177",
+    "data/prepared/label-ingestion.json": "167e2cd6fff78cbea093d99476b77196627714cec2540289032904c1c1c595f4",
+    "data/prepared/labels-fit.json": "c4097d44618f087cf123a3f0f97273d0ba1347761153e22f13dade949eabcae6",
+    "data/prepared/labels-test.json": "3e663ec3c5b134bc779db4374229409bc83d8144a291955dedd169c7174fd1a3",
+    "data/prepared/labels-tune.json": "ea8286f7267e777ef3aa502a3ff52a141676f7ed3d3d26626019f643c0c14966",
+    "data/prepared/labels-validation.json": "3f70fe40ea6da69da52bf449c1eed21ffdf387224b360db48dcc02ddf84ee821",
+    "data/prepared/manifest.json": "68a2660cc867845982758ad06bbd32104ced074720f82b7b5496c30a227c594f",
+    "data/prepared/membership.json": "677e46f9674ac2a48431130dfca2b9da99ec6a208799ffc0f149eedb3c9de012"
+  },
+  "planned_trials": [
+    [
+      "clinical_linear",
+      17
+    ],
+    [
+      "image_linear",
+      17
+    ],
+    [
+      "concat_linear",
+      17
+    ],
+    [
+      "metablock",
+      17
+    ],
+    [
+      "healnet",
+      17
+    ]
+  ],
+  "label_access": {
+    "raw_ingestion": "public source labels mechanically partitioned only after membership frozen",
+    "allowed_analytical_partitions": [
+      "fit",
+      "tune"
+    ]
+  },
+  "budgets": {
+    "device": "cpu",
+    "threads": 4,
+    "rss_limit_gib": 6,
+    "disk_limit_gib": 12,
+    "new_cloud_resources": 0,
+    "paid_training_calls": 0,
+    "fits": 15,
+    "training_soft_seconds": 1500,
+    "training_hard_seconds": 1800,
+    "smoke_seconds": 120,
+    "worker_progress_timeout_seconds": 120
+  },
+  "environment": {
+    "python": "3.13.12 (main, Mar 10 2026, 18:17:38) [Clang 21.1.4 ]",
+    "torch": "2.15.0+cpu",
+    "platform": "Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+    "machine": "x86_64",
+    "cpu_count": 16,
+    "threads": 4
+  },
+  "memory_estimate_mib": {
+    "mapped_cache_and_input_batches": 256,
+    "labels_and_clinical": 5,
+    "parameters_gradients_optimizer": 32,
+    "activations_temporaries": 192,
+    "framework_and_python": 768,
+    "predictions_checkpoint_buffers": 64,
+    "safety_margin": 512
+  },
+  "scientific_result": false,
+  "publication_ready": false,
+  "command": [
+    "/home/lu2/dev/personal/projects/healthcare/clinical-image-fusion-lab/.venv/bin/python",
+    "-m",
+    "src.supervisor",
+    "--proposal",
+    "/home/lu2/dev/personal/projects/healthcare/clinical-image-fusion-lab/reviews/smoke-v1-proposal.json",
+    "--review",
+    "/home/lu2/dev/personal/projects/healthcare/clinical-image-fusion-lab/reviews/execute-smoke-v1.json"
+  ]
+}
