@@ -1,0 +1,7 @@
+{
+  "initial_status_translation": "pass",
+  "failed_retry_hides_previous_scores": "pass",
+  "failed_retry_clears_previous_trace": "pass",
+  "error_translation": "pass",
+  "real_inference_recovery": "pass"
+}

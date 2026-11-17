@@ -2,7 +2,8 @@ let language = "en",
   manifest,
   activeCase,
   busy = false,
-  lastScores = null;
+  lastScores = null,
+  lastError = null;
 const $ = (id) => document.getElementById(id);
 const t = (en, zh) => (language === "zh" ? zh : en);
 const labels = {
@@ -106,6 +107,7 @@ function fieldList(target, keys) {
 function showCase() {
   activeCase = manifest.cases[Number($("case-select").value) || 0];
   lastScores = null;
+  lastError = null;
   $("prediction").hidden = true;
   $("case-image").src = activeCase.image;
   $("case-image").alt =
@@ -237,6 +239,10 @@ function translate() {
   $("language").textContent = language === "en" ? "中文讲解" : "English";
   if (manifest) {
     renderMetrics();
+    $("load-status").textContent = t(
+      "Real paired research records · PAD-UFES-20 · CC BY 4.0",
+      "真实配对研究记录 · PAD-UFES-20 · CC BY 4.0",
+    );
     if (activeCase) {
       fieldList("clinical-fields", [
         "age",
@@ -247,6 +253,24 @@ function translate() {
       ]);
       fieldList("all-fields", Object.keys(fields));
       if (lastScores) showResults(lastScores);
+      if (!busy && lastError) {
+        $("run-status").textContent =
+          t(
+            "Model execution failed. Reload this page and try again. Details: ",
+            "模型运行失败。请刷新页面后重试。详情：",
+          ) + lastError;
+      } else if (!busy && lastScores && window.__lastInference) {
+        const seconds = (window.__lastInference.elapsed_ms / 1000).toFixed(1);
+        $("run-status").textContent = t(
+          `Computed in ${seconds} seconds · actual ONNX model inference · seed 17`,
+          `用时 ${seconds} 秒 · 实际 ONNX 模型计算 · 种子 17`,
+        );
+      } else if (!busy) {
+        $("run-status").textContent = t(
+          "First run downloads the image encoder (about 45 MB). Computation stays in this browser.",
+          "首次运行下载约 45 MB 的图像编码器。计算在当前浏览器内进行。",
+        );
+      }
     }
   }
 }
@@ -288,6 +312,9 @@ const softmax = (values) => {
 $("run").onclick = async () => {
   if (busy) return;
   busy = true;
+  lastScores = null;
+  lastError = null;
+  window.__lastInference = null;
   $("run").disabled = true;
   $("case-select").disabled = true;
   $("prediction").hidden = true;
@@ -336,6 +363,7 @@ $("run").onclick = async () => {
     );
   } catch (error) {
     console.error(error);
+    lastError = String(error.message || error);
     $("run-status").textContent =
       t(
         "Model execution failed. Reload this page and try again. Details: ",
