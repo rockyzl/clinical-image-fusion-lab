@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>先看这里 · 临床照片与资料融合演示</title>
+  <style>
+    :root{--paper:#fff;--ink:#12344b;--accent:#167777;--muted:#5c6f7b;--wash:#eef5f7;--line:#cedde3}
+    *{box-sizing:border-box}body{margin:0;background:var(--wash);color:var(--ink);font:17px/1.8 "Segoe UI","Microsoft YaHei",sans-serif}main{max-width:980px;margin:56px auto;padding:0 24px}header{padding-bottom:30px;border-bottom:1px solid var(--line)}.eyebrow{font-size:13px;letter-spacing:.12em;color:var(--accent)}h1{font:600 clamp(29px,4vw,42px)/1.4 "Noto Serif CJK SC","Songti SC",SimSun,serif;max-width:820px;margin:14px 0}h2{font-size:24px;line-height:1.5;margin:0 0 14px}h3{font-size:18px;margin:0 0 8px}p{margin:10px 0}.lede{font-size:20px;max-width:810px}.muted{color:var(--muted);font-size:15px}a{color:var(--accent);text-underline-offset:3px}.button{display:inline-block;background:var(--accent);color:var(--paper);padding:11px 22px;border-radius:7px;text-decoration:none;font-weight:650;margin:14px 12px 0 0}.secondary{background:var(--paper);color:var(--accent);border:1px solid var(--line)}a:focus-visible{outline:3px solid var(--ink);outline-offset:4px}section{margin-top:28px;padding:28px;background:var(--paper);border:1px solid var(--line);border-radius:10px}.paired{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--line);border-radius:8px;overflow:hidden;margin:20px 0 0}.paired article{padding:20px}.paired article+article{border-left:1px solid var(--line)}.join{grid-column:1/-1;text-align:center;border-top:1px solid var(--line);background:var(--wash);padding:10px;font-size:15px;color:var(--accent)}ol{padding-left:24px;margin-bottom:0}li{padding:5px 0 10px}li p{margin:3px 0}.finding{border-left:4px solid var(--accent);padding:8px 20px;background:var(--wash);margin:18px 0}.path{overflow-wrap:anywhere;font:14px/1.8 Consolas,monospace}footer{padding:26px 0;color:var(--muted);font-size:14px}@media(max-width:600px){main{margin:28px auto;padding:0 16px}section{padding:20px}.paired{grid-template-columns:1fr}.paired article+article{border-left:0;border-top:1px solid var(--line)}.button{display:block;text-align:center;margin-right:0}.lede{font-size:18px}}
+  </style>
+</head>
+<body><main>
+  <header>
+    <div class="eyebrow">LU'S PROJECT GUIDE · CLINICAL IMAGE FUSION LAB</div>
+    <h1>看同一张皮肤照片，<br>补充临床资料会更准确吗？</h1>
+    <p class="lede">选一条真实公开记录，比较模型只看照片、只读资料，以及把两者一起用时，分别给出什么答案。</p>
+    <a class="button" href="https://rockyzl.github.io/clinical-image-fusion-lab/">打开在线演示 ↗</a>
+    <a class="button secondary" href="https://github.com/rockyzl/clinical-image-fusion-lab">查看 GitHub 项目 ↗</a>
+    <p class="muted">不用登录或 API key。首次计算需要下载约 45 MB 图像编码器；计算在你的浏览器里进行。</p>
+  </header>
+  <section aria-labelledby="inputs">
+    <h2 id="inputs">“多模态”就是把这两种信息一起用</h2>
+    <div class="paired">
+      <article><h3>一张真实照片</h3><p>皮肤病变的临床照片。页面显示的是模型实际使用的裁剪图。</p></article>
+      <article><h3>这张照片对应的资料</h3><p>年龄、身体部位、病变大小、瘙痒、近期变化等记录。</p></article>
+      <div class="join">用原始影像编号配对：照片和资料来自同一条记录。</div>
+    </div>
+    <p class="muted">数据来自 PAD-UFES-20：2,298 张公开、去标识的临床照片及配对资料。网页展示其中 12 个固定样本。</p>
+  </section>
+  <section aria-labelledby="try">
+    <h2 id="try">第一次演示，先做这四步</h2>
+    <ol>
+      <li><strong>打开网页，点右上角“中文讲解”。</strong><p>在“选择公开样本”里选一条，先看照片和旁边的年龄、部位、症状。</p></li>
+      <li><strong>点“让模型计算”。</strong><p>等下载和计算完成。首次较慢；之后换样本会复用已加载的模型。</p></li>
+      <li><strong>比较三张结果卡。</strong><p>“只看照片”“只看临床资料”“照片＋临床资料”可能给出不同类别。再看“数据集提供的标签”，检查这一例有没有答对。</p></li>
+      <li><strong>向下看“加入临床资料后，整体表现变好了吗？”</strong><p>这里是事先保存的整个测试组结果，回答“总体是否有帮助”。不要只凭一个样本下结论。</p></li>
+    </ol>
+    <p class="muted">想多看一步，再展开“再看两种更复杂的融合模型”，比较 MetaBlock 和 HEALNet。第一次演示不必先记住这些名字。</p>
+  </section>
+  <section aria-labelledby="meaning">
+    <h2 id="meaning">它真正做了什么 AI？结果说明什么？</h2>
+    <p>已训练好的图像编码器先把照片转成数字特征；本项目训练的预测层再学习“这些特征、临床字段和数据集类别之间有什么关系”。点击按钮时，浏览器实际运行保存的模型权重。</p>
+    <div class="finding"><strong>这次固定实验里，加入临床资料比只看照片表现更好。</strong><p>但只看临床资料的模型也很有竞争力。所以不能反过来说“增加照片一定更好”，也不能据此宣布某种复杂结构总是最好。</p></div>
+    <p>表格里的 <strong>Macro-F1</strong> 是兼顾每个类别的分类分数，越高越好；旁边区间表示这次评估的不确定性。单个样本卡片里的百分比是模型类别得分，不是已验证的患病概率。</p>
+    <p class="muted">这是一个回顾性研究原型，不用于诊断。这里没有聊天 Agent，也没有连接医院。分类本身用机器学习完成，不需要大语言模型 API。</p>
+  </section>
+  <section aria-labelledby="launch">
+    <h2 id="launch">在哪里运行？</h2>
+    <p><strong>最简单：使用上方在线链接。</strong>静态网页由 GitHub Pages 提供，模型在访问者的电脑上计算，不调用付费 AI API。</p>
+    <p>本地 Python API 是另一个服务化练习，包含输入校验、模型版本和一个模拟审核流程；它不是网页演示的必需条件。启动方式在 <a href="https://github.com/rockyzl/clinical-image-fusion-lab#run-locally">README 的 Run locally</a>。</p>
+    <p class="muted">不要直接双击应用的 index.html 来运行模型：浏览器会限制本地文件读取。这个说明页可以直接双击，在线演示则用上方按钮打开。</p>
+  </section>
+  <footer>更新：2026-11-18 · 说明页可离线阅读；在线按钮需要网络。已有模型与实验结果未改变。</footer>
+</main></body>
+</html>

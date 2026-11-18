@@ -22,4 +22,4 @@ The results JSON uses the legacy shorthand "patient-plus-exact-duplicate compone
 
 Training: 15 fits, 234.5 seconds in the worker. No cloud training calls or new cloud resources. The external supervisor sampled the worker process tree; this is not a measurement of total machine energy or all unrelated processes.
 
-See `reviews/final-model-review.md` for the independent recomputation, and `docs/export-parity.json` plus `docs/browser-verification.json` for deployment checks when completed.
+See [the independent model review](../reviews/final-model-review.md) for the recomputation. Export checks and actual public-browser verification are complete: [export parity](export-parity.json), [12-case browser verification](browser-verification.json), and [public deployment receipt](public-deployment.json). These establish execution and consistency of the saved models, not clinical validity.

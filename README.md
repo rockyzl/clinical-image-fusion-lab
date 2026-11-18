@@ -1,6 +1,8 @@
 # Clinical Image Fusion Lab
 
-[Open the live demo](https://rockyzl.github.io/clinical-image-fusion-lab/) · [中文学习说明](docs/learn.zh.md) · [Actual evaluation results](docs/results.md)
+[Open the live demo](https://rockyzl.github.io/clinical-image-fusion-lab/) · [中文入口与一分钟演示](docs/start-here.zh.html) · [中文学习说明](docs/learn.zh.md) · [Actual evaluation results](docs/results.md)
+
+On Lu's Windows machine, open `C:\vmshare\Clinical_Image_Fusion_Lab\START_HERE.html` for the Chinese walkthrough and direct online link. The guide is a standalone copy of `docs/start-here.zh.html`; the model demo itself should be opened over HTTP, not as a local `file://` page.
 
 A small, independent research implementation that asks: **does a patient's clinical record help a model classify their skin-lesion photograph?** It uses real, paired public records, trains prediction heads, compares five methods and runs the exported models in a browser.
 
